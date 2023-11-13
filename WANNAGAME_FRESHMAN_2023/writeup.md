@@ -173,7 +173,11 @@ with open('ciphertext.txt','w') as enc:
 ```
 
 **Nhận xét:**
-
+- Đầu tiên, phân tích file [Xorpher.py](https://cnsc.uit.edu.vn/ctf/files/88b51c43426820e346caa583d7671b53/Xorpher.py?token=eyJ1c2VyX2lkIjo4NjksInRlYW1faWQiOm51bGwsImZpbGVfaWQiOjE4M30.ZVJHaw.s9hm6MdjyaKphRwXFsN5YGypFms) ta dễ dàng nhận ra đây là một bài xor cơ bản.
+- $key$ là một list gồm 8 số, các số có vị trí đối xứng nhau thì bằng nhau.
+- Mình đoán đoạn "3a302624 7f30 0b6d" là "flag is W1" và thử tìm key với phán đoán này và may mắn là phán đoán của mình chuẩn.
+- Tìm ra key rồi thì việc decode hết sức đơn giản.
+  
 **Code(C++):**
 ```cpp
 #include<bits/stdc++.h>
