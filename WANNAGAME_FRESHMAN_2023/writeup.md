@@ -140,3 +140,109 @@ res = base^-100 * enc
 print("".join([chr(i[0]) for i in res]))
 #W1{m4tr1x_1s_r3ally_c00l_r1ght?}
 ```
+
+## Xorpher
+>More xor for more ex-or!
+>
+>Flag format: W1{this_is_not_a_flag}
+>
+>author: KienSD
+
+**Attachments:**
+[Xorpher.py](https://cnsc.uit.edu.vn/ctf/files/88b51c43426820e346caa583d7671b53/Xorpher.py?token=eyJ1c2VyX2lkIjo4NjksInRlYW1faWQiOm51bGwsImZpbGVfaWQiOjE4M30.ZVJHaw.s9hm6MdjyaKphRwXFsN5YGypFms)
+```py
+from random import randint
+from string import ascii_letters,digits
+
+table = ascii_letters+digits
+
+with open('message.txt') as flag:
+    flag = flag.read()
+
+key = bytearray([randint(0,256) for _ in range(4)]) 
+key = (key + key[::-1])[::-1]
+
+ciphertext = "".join(str(hex(key[i%len(key)]^ord(flag[i]))[2:].zfill(2)) if flag[i] in table else flag[i] for i in range(len(flag)))
+
+with open('ciphertext.txt','w') as enc:
+    enc.write(ciphertext)
+```
+[ciphertext.txt](https://cnsc.uit.edu.vn/ctf/files/98ebfe2359f82580cc0be7245d98505b/ciphertext.txt?token=eyJ1c2VyX2lkIjo4NjksInRlYW1faWQiOm51bGwsImZpbGVfaWQiOjE4Mn0.ZVJHaw.f_tMa7V4WPkeO1hAT4IF0mJ5RI0)
+```
+082f26 4e0c15 333726647737282e 2e30 733b332e392a267a6f 2433312a2c78 2234 3d 20797b332832392937 7f2d 31333526 752c2a2c30223b 752a3734393530. 013e 353330737a25, 29342a7871 26 3f282d6562222928 352666732233353220 7d733a, 3d 307f7b332b39 1f0c44 202e2c342231 752229 28352a607f222b3025 2173 21353337222d 63302e323b 25647332323932243a 772d263025342a65. 0e3a 332b73 20283228222d62 2c21 3d293a 7b26342f3d2026 752229 3e22 716326342f3923 7964 2828342231617f3022 37292c6178 33343929 627e26 37393e 75772d 3e39 3173602626303923. 5f3734 2c352a7b77313e 3122317f62 2e2f 332b7762 2e28 2e30 652a2a2c3022 6279 2e312c2b267b732d33, 262d72 372f3d28 377e73 1f130e 2c667331262835282d 7f30 3f332a3363622233353329227a7a3a 3532223b66732d34352a22. 57 343531372f73 31222c3926377f7824 041315 (7f.22. 32307f7824 283422 65772e22 37223a 702c35 242831 7933222e3d332a7978 2832 332b73 342f333022 72773726) 242a667e2635 3534 627e2635393a283173 30283139332a7b7330 292f2227 702c35 342e277f7824 3532212c647b2233353329 7f78 243d2f2230 612b222e39 2d79 33262e282e20637a2235 2f222063642a3325 2e30 6426362935352672. 133439 1b5944 24352c2f2664 2a34 3321377378 322f3923 7f78 2433313736627331 313d2b34776426 2833 2e777d26 2e393126646526 3932202a78732635353220 7b793122 382e25707f20323028. 427e26 3a302624 7f30 0b6d{3b2664_762f_24737b7b7329_6d29_75647437286c}
+```
+
+**Nhận xét:**
+
+**Code(C++):**
+```cpp
+#include<bits/stdc++.h>
+
+using namespace std;
+
+string cipherText = "082f26 4e0c15 333726647737282e 2e30 733b332e392a267a6f 2433312a2c78 2234 3d 20797b332832392937 7f2d 31333526 752c2a2c30223b 752a3734393530. 013e 353330737a25, 29342a7871 26 3f282d6562222928 352666732233353220 7d733a, 3d 307f7b332b39 1f0c44 202e2c342231 752229 28352a607f222b3025 2173 21353337222d 63302e323b 25647332323932243a 772d263025342a65. 0e3a 332b73 20283228222d62 2c21 3d293a 7b26342f3d2026 752229 3e22 716326342f3923 7964 2828342231617f3022 37292c6178 33343929 627e26 37393e 75772d 3e39 3173602626303923. 5f3734 2c352a7b77313e 3122317f62 2e2f 332b7762 2e28 2e30 652a2a2c3022 6279 2e312c2b267b732d33, 262d72 372f3d28 377e73 1f130e 2c667331262835282d 7f30 3f332a3363622233353329227a7a3a 3532223b66732d34352a22. 57 343531372f73 31222c3926377f7824 041315 (7f.22. 32307f7824 283422 65772e22 37223a 702c35 242831 7933222e3d332a7978 2832 332b73 342f333022 72773726) 242a667e2635 3534 627e2635393a283173 30283139332a7b7330 292f2227 702c35 342e277f7824 3532212c647b2233353329 7f78 243d2f2230 612b222e39 2d79 33262e282e20637a2235 2f222063642a3325 2e30 6426362935352672. 133439 1b5944 24352c2f2664 2a34 3321377378 322f3923 7f78 2433313736627331 313d2b34776426 2833 2e777d26 2e393126646526 3932202a78732635353220 7b793122 382e25707f20323028. 427e26 3a302624 7f30 0b6d{3b2664_762f_24737b7b7329_6d29_75647437286c}";
+vector<pair<int, bool>> message; // {ord(message[i]), is in table}
+map<char, int> transFromHexadecimalToDecimal = {{'0', 0}, {'1', 1}, {'2', 2}, {'3', 3}, {'4', 4}, {'5', 5}, {'6', 6}, {'7', 7}, {'8', 8}, {'9', 9}, {'a', 10}, {'b', 11}, {'c', 12}, {'d', 13}, {'e', 14}, {'f', 15}};
+int key[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+map<int, char> myGuessPos = {{687, 'f'},
+                             {688, 'l'},
+                             {689, 'a'},
+                             {690, 'g'},
+                             {692, 'i'},
+                             {693, 's'},
+                             {695, 'W'},
+                             {696, '1'}};
+
+bool isHexadecimal(char x) {
+    if((x >= '0' && x <= '9') || (x >= 'a' && x <= 'f'))
+        return true;
+    return false;
+}
+
+string toStr(int number) {
+    string res;
+    while(number > 0) {
+        res = string({char(number % 10 + '0')}) + res;
+        number /= 10;
+    }
+    return res;
+}
+
+int main() {
+    { // pre processing
+        int cipherTextLength = cipherText.length(); 
+        for(int i = 0; i  < cipherTextLength; ++i) {
+            if(isHexadecimal(cipherText[i])) {
+                int number = transFromHexadecimalToDecimal[cipherText[i]] * 16 + transFromHexadecimalToDecimal[cipherText[i + 1]];
+                message.push_back({number, true});
+                ++i;
+                continue;
+            }
+            message.push_back({int(cipherText[i]), false});
+        }
+    }
+
+    { // build key
+        for(int i = 0; i < message.size(); ++i) if(myGuessPos[i])
+            key[i % 8] = (message[i].first^myGuessPos[i]);
+        // for(int i = 0; i < 8; ++i) 
+        //     cout << key[i] << ' ';
+        // cout << '\n';
+        // 92 71 67 0 22 67 0 92
+        key[3] = 22;
+        key[6] = 71;
+    }
+
+    { // decode
+        for(int i = 0; i < message.size(); ++i) {
+            cout << char(message[i].first^(message[i].second ? key[i % 8] : 0));
+            // The XOR operator is extremely common as a component in more complex ciphers. By itself, using a constant repeating key, a simple XOR cipher can trivially be broken using frequency analysis. If the content of any message can be guessed or otherwise known then the key can be revealed. Its primary merit is that it is simple to implement, and that the XOR operation is computationally inexpensive. A simple repeating XOR (i.e. using the same key for xor operation on the whole data) cipher is therefore sometimes used for hiding information in cases where no particular security is required. The XOR cipher is often used in computer malware to make reverse engineering more difficult. The flag is W1{x0r_1s_c0mm0n_1n_cr7pt0}
+            // W1{x0r_1s_c0mm0n_1n_cr7pt0}
+        }
+    }
+
+    return 0;
+}
+```
+  
