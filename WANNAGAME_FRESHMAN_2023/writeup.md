@@ -66,7 +66,7 @@ hint 2: 107283957759499663953333972940428532630825517639279168870550288698510570
     $= pq(pq - hint1 + 1)$
 
   -  $d = e$<sup>−1</sup> $mod$ $\varphi(n)$
-- Tìm được d rồi thi ta dễ dàng tính được $flag$ với công thức:
+- Tìm được $d$ rồi thì ta dễ dàng tính được $flag$ với công thức:
 
     $flag =$ $c^d$ $mod$ $n$
 
