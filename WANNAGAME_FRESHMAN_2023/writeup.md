@@ -249,4 +249,75 @@ int main() {
     return 0;
 }
 ```
-  
+
+## Quipquip
+>
+>
+>
+
+**Attachments:**
+[chall.py]()
+```py
+import string 
+import secrets
+
+# Hidden file
+from message import message
+
+
+message = message.lower()
+for i in message:
+	if ord(i) not in range(97,123):
+		message = message.replace(i, "")
+
+alphabet = string.ascii_letters
+key = []
+
+while True:
+	if len(key) == 26:
+		break
+	char = "".join(alphabet[secrets.randbelow(len(alphabet))] for _ in range(3))
+	if char not in key:
+		key.append(char)
+
+alphabet = string.ascii_lowercase
+dic = {term : char for term, char in zip(alphabet, key)}
+
+cipher = ""
+for i in message.lower():
+	if i in alphabet:
+		cipher += dic[i]
+	else:
+		cipher += i 
+
+print(f"{cipher = }")
+# cipher = 'ZJjczesjQzxwcdAeyuTDNymWaDIzxwoePeyudmmcdAoePPWSxCeoskPWSTDNZJjTDNxCeTDNZJjymWczesjQZJjeyudmmgDfzxwZJjPWSoePjyLgDfTDNdmmymWHMFymWykbgDfczesjQzxwcdAeyuTDNZJjczeaDIZJjczeNLZdmmZJjsjQdmmxCeczeZJjTDNPWSymWykbeyuNpYoePZJjczeTDNgDfgrNTDNoePzxwgDfzxwgDfeyuNpYoePsjQgDfHMFNLZZJjTDNdmmTDNdmmgDfsjQZJjeyudmmgDfzxwTDNgDfgrNTDNZJjczeoePHMFgDfykbZJjczegDfHMFjyLoePczeczegDfzxwNLZZJjTDNdmmTDNdmmgDfdmmgDfNpYeyuymWykboePDJrgDfcdATDNdmmgDfxCeczeZJjTDNPWSjyLoePcdAoskgDfPWSZJjczeaDINpYgDfNpYgDfTDNTDNgDfzxwPWSTDNdmmgDfjyLymWPWSTDNsjQymWjyLjyLymWczeeyuoePZJjzxwPWSymWykbNpYgDfTDNTDNgDfzxwPWSTDNzxwZJjeyuNpYgDfTDNPWSymWykbNpYgDfTDNTDNgDfzxwPWSjyLZJjgrNTDNxCezxwgDfPWSymWykbTDNdmmgDfoePoskymWpcAgDfoePczeHMFPWSymWykbymWzxwTDNdmmTDNdmmgDfzxwgDfsjQgDfZJjpcAgDfzxwHMFgDfsjQZJjeyudmmgDfzxwPWSTDNdmmgDfTDNgDfgrNTDNoskcdAeyugDfzxwykbymWzxwjyLZJjczeaDITDNdmmgDfZJjczepcAgDfzxwPWSgDfPWSxCeoskPWSTDNZJjTDNxCeTDNZJjymWczeeyuzxwymWsjQgDfPWSPWSTDNymWgDfgrNTDNzxwoePsjQTDNTDNdmmgDfymWzxwZJjaDIZJjczeoePNpYjyLgDfPWSPWSoePaDIgDfTDNdmmgDfykbNpYoePaDIZJjPWSgDfpcAgDfzxwcdATDNdmmZJjczeaDIoePykbTDNgDfzxwTDNdmmZJjPWSTDNgDfzxwoePTDNymWPWSoePxCezxwxCePWS'
+```
+**Nhận xét:**
+- a
+
+**Code(C++):**
+```cpp
+#include<bits/stdc++.h>
+
+using namespace std;
+
+string cipher = "ZJjczesjQzxwcdAeyuTDNymWaDIzxwoePeyudmmcdAoePPWSxCeoskPWSTDNZJjTDNxCeTDNZJjymWczesjQZJjeyudmmgDfzxwZJjPWSoePjyLgDfTDNdmmymWHMFymWykbgDfczesjQzxwcdAeyuTDNZJjczeaDIZJjczeNLZdmmZJjsjQdmmxCeczeZJjTDNPWSymWykbeyuNpYoePZJjczeTDNgDfgrNTDNoePzxwgDfzxwgDfeyuNpYoePsjQgDfHMFNLZZJjTDNdmmTDNdmmgDfsjQZJjeyudmmgDfzxwTDNgDfgrNTDNZJjczeoePHMFgDfykbZJjczegDfHMFjyLoePczeczegDfzxwNLZZJjTDNdmmTDNdmmgDfdmmgDfNpYeyuymWykboePDJrgDfcdATDNdmmgDfxCeczeZJjTDNPWSjyLoePcdAoskgDfPWSZJjczeaDINpYgDfNpYgDfTDNTDNgDfzxwPWSTDNdmmgDfjyLymWPWSTDNsjQymWjyLjyLymWczeeyuoePZJjzxwPWSymWykbNpYgDfTDNTDNgDfzxwPWSTDNzxwZJjeyuNpYgDfTDNPWSymWykbNpYgDfTDNTDNgDfzxwPWSjyLZJjgrNTDNxCezxwgDfPWSymWykbTDNdmmgDfoePoskymWpcAgDfoePczeHMFPWSymWykbymWzxwTDNdmmTDNdmmgDfzxwgDfsjQgDfZJjpcAgDfzxwHMFgDfsjQZJjeyudmmgDfzxwPWSTDNdmmgDfTDNgDfgrNTDNoskcdAeyugDfzxwykbymWzxwjyLZJjczeaDITDNdmmgDfZJjczepcAgDfzxwPWSgDfPWSxCeoskPWSTDNZJjTDNxCeTDNZJjymWczeeyuzxwymWsjQgDfPWSPWSTDNymWgDfgrNTDNzxwoePsjQTDNTDNdmmgDfymWzxwZJjaDIZJjczeoePNpYjyLgDfPWSPWSoePaDIgDfTDNdmmgDfykbNpYoePaDIZJjPWSgDfpcAgDfzxwcdATDNdmmZJjczeaDIoePykbTDNgDfzxwTDNdmmZJjPWSTDNgDfzxwoePTDNymWPWSoePxCezxwxCePWS";
+map<string, char> trans;
+char temp = 'a';
+
+int main() {
+    for(int i = 0; i < cipher.length(); i += 3) {
+        string s = {cipher[i], cipher[i + 1], cipher[i + 2]};
+        if(trans[s] == 0)
+            trans[s] = temp++;
+        cout << trans[s];
+    }
+    //abcdefghidjfkejlmnlgagmgahbcafkodaljpogkhqhrobcdefgabiabskackmbaglhrftjabgougjdodoftjcoqsagkgkocafkodgougabjqoraboqpjbbodsagkgkokotfhrjvoegkombaglpjenolabitotoggodlgkophlgchpphbfjadlhrtoggodlgdaftoglhrtoggodlpaugmdolhrgkojnhwojbqlhrhdgkgkodocoawodqocafkodlgkogougnefodrhdpabigkoabwodlolmnlgagmgahbfdhcollghougdjcggkohdaiabjtpolljiogkortjialowodegkabijrgodgkalgodjghljmdml
+    //after using quipquip tool i receive
+    // in cryptography a substitution cipher is a method of encrypting in which units of plain text are replaced with the ciphertext in a defined manner with the help of a key the units may be single letters the most common pairs of letters triplets of letters mixtures of the above and so forth the receiver deciphers the text by performing the inverse substitution process to extract the original message the flag is everything after this teratosaurus
+    // W1{teratosaurus}
+    return 0;
+}
+```
+
