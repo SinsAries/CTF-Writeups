@@ -1,14 +1,15 @@
 # WannaGame Freshman 2023 writeup
+## Thông tin giải
 - Giải WannaGame Freshman 2023 được tổ chức bởi Phòng thí nghiệm An toàn thông tin - UIT InSecLab
 - Thời gian: 𝟖𝐡𝟎𝟎 - 𝟏𝟔𝐡𝟎𝟎, ngày 𝟏𝟏/𝟏𝟏/𝟐𝟎𝟐𝟑
 - Địa điểm: Trường Đại học Công nghệ Thông tin – ĐHQG-HCM
-# Thông tin tác giả
+  # Thông tin tác giả
 - Họ và tên: Nguyễn Trọng Tất Thành
 - MSSV: 23521455
 - Vai trò: Cryptography
 - Team: f1nd1ng_s0m3th1ng_g3nu1n3
-# Các bài toán đã giải
-## EasyRSA
+## Các bài toán đã giải
+### EasyRSA
 >I gave you two hints! Now it's your turn to give me my flag.
 >
 >Flag format: W1{...}
@@ -89,7 +90,7 @@ print(ltb(flag))
 #W1{0k_th1s_1s_e4sy_RSA_1nd33d}
 ```
 
-## Multi-multi
+### Multi-multi
 >More encryption, more secure. or is it?
 >
 >Flag format: W1{this_is_not_a_flag}
@@ -141,7 +142,7 @@ print("".join([chr(i[0]) for i in res]))
 #W1{m4tr1x_1s_r3ally_c00l_r1ght?}
 ```
 
-## Xorpher
+### Xorpher
 >More xor for more ex-or!
 >
 >Flag format: W1{this_is_not_a_flag}
@@ -250,7 +251,7 @@ int main() {
 }
 ```
 
-## Quipquip
+### Quipquip
 >That's cute, right??
 >
 >Flag format: W1{some_lowercase_letters}
@@ -404,7 +405,7 @@ print(str(ltb(-flag2))[2:-1])
 # W1{b4n_H_R4t_vU1_V1_du0c_Di3m_10}
 ```
 
-## CSR:
+### CSR:
 >Ngày nảy ngày nay, ai cũng biết đến danh bạn D như một ông trùm 4n6. Tuy nhiên, bạn D lại vô cùng tham vọng, bạn muốn trở thành ông trùm của mọi mảng và bạn quyết định chọn mảng crypto đầu tiên. Sau khi đã tìm hiểu kĩ lưỡng về mật mã Caesar, bạn D đã sáng tạo nên một biến thể của nó mang tên CSR. Bạn D đã đưa bài này lên mạng để test trình độ của những người chơi crypto khác. Theo bạn, liệu bạn D có đủ trình độ để đá chén cơm của những người chơi crypto lúc bấy giờ hay không?
 >
 >Flag format : W1{...}
@@ -491,7 +492,7 @@ bt(0)
 #flag: W1{y0u_be4t_My_CA354R_bu7_HoW!!?!}
 ```
 
-## Shorty
+### Shorty
 >Shorty: Break this line 🤪
 >
 >Code: print("Encrypted message: ", pow(int(input("Your message in integer: ")), int.from_bytes(open("e", "rb").read(), byteorder="big"), int.from_bytes(open("flag", "rb").read(), byteorder="big")))
@@ -518,7 +519,7 @@ print(ltb(flag))
 #W1{so_happy_that_I_can_create_one_line_crypto!}
 ```
 
-## Multi-RSA
+### Multi-RSA
 >The more encryptions, the safer it is ??
 >
 >Flag format: W1{f4ke_fl@g}
@@ -599,12 +600,12 @@ print("".join(flag))
 #W1{brut3-f0rc3_c4n_s0lve_everyth1n9}
 ```
 
-# Một vài bài học rút ra
+## Một vài bài học rút ra
 - Có vài bài mình ban đầu khá phức tạp hóa lên bằng các công thức nhưng thực ra chỉ cần duyệt trâu là xong, vì vậy mình nghĩ chúng ta nên tiếp cận bài toán từ nhiều hướng thay vì bỏ qua các hướng đơn giản
 - Mình cần bổ túc thêm sagemath, python ... huhu
 - Đọc kí hơn các hàm, ví dụ như hàm sinh safeprime ban đầu mình bỏ qua không chú ý đến vì nghĩ nó chỉ là một hàm sinh số nguyên tố, sau khi để ý đến thì mình giải ra bài toán một cách dễ dàng
 
-# Tản mạn
+## Tản mạn
 - Đây là giải ctf đầu tiên mình đánh trong vai trò solo, trước đây thì mình được đồng đội gánh là chính(nhất là ngài Phúc Dương), vì thế mình khá là căng thẳng, mình cũng khá là gà nên mình cũng không mong chờ gì nhiều nhưng may mắn nên kết quả cũng không tệ lắm
 - Mình cũng thật sự rất biết ơn anh tranminhprvt01, anh ấy đã dìu dắt và giúp đỡ mình rất nhiều trong những ngày đầu bước vào bộ môn CTF, có thể nói nếu không có anh ấy thì có lẽ giờ mình vẫn đang chẳng biết phải học kiểu gì
 
