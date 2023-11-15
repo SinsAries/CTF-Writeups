@@ -3,7 +3,7 @@
 - Giải WannaGame Freshman 2023 được tổ chức bởi Phòng thí nghiệm An toàn thông tin - UIT InSecLab
 - Thời gian: 𝟖𝐡𝟎𝟎 - 𝟏𝟔𝐡𝟎𝟎, ngày 𝟏𝟏/𝟏𝟏/𝟐𝟎𝟐𝟑
 - Địa điểm: Trường Đại học Công nghệ Thông tin – ĐHQG-HCM
-  # Thông tin tác giả
+## Thông tin tác giả
 - Họ và tên: Nguyễn Trọng Tất Thành
 - MSSV: 23521455
 - Vai trò: Cryptography
