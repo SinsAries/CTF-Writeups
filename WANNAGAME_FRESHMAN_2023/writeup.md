@@ -599,5 +599,12 @@ print("".join(flag))
 #W1{brut3-f0rc3_c4n_s0lve_everyth1n9}
 ```
 
+# Một vài bài học rút ra
+- Có vài bài mình ban đầu khá phức tạp hóa lên bằng các công thức nhưng thực ra chỉ cần duyệt trâu là xong, vì vậy mình nghĩ chúng ta nên tiếp cận bài toán từ nhiều hướng thay vì bỏ qua các hướng đơn giản
+- Mình cần bổ túc thêm sagemath, python ... huhu
+- Đọc kí hơn các hàm, ví dụ như hàm sinh safeprime ban đầu mình bỏ qua không chú ý đến vì nghĩ nó chỉ là một hàm sinh số nguyên tố, sau khi để ý đến thì mình giải ra bài toán một cách dễ dàng
 
+# Tản mạn
+- Đây là giải ctf đầu tiên mình đánh trong vai trò solo, trước đây thì mình được đồng đội gánh là chính(nhất là ngài Phúc Dương), vì thế mình khá là căng thẳng, mình cũng khá là gà nên mình cũng không mong chờ gì nhiều nhưng may mắn nên kết quả cũng không tệ lắm
+- Mình cũng thật sự rất biết ơn anh tranminhprvt01, anh ấy đã dìu dắt và giúp đỡ mình rất nhiều trong những ngày đầu bước vào bộ môn CTF, có thể nói nếu không có anh ấy thì có lẽ giờ mình vẫn đang chẳng biết phải học kiểu gì
 
